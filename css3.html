@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html5/semantics.html">
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <script type="text/javascript">
+      // <![CDATA[
+      var j = jQuery.noConflict();
+      // ]]>
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
+    <script type="text/javascript">
+      void function($) {
+        $(
+          function(event) {
+              $('div.content').on(
+                'hover',
+                'header p',
+                function(event) {
+                  var type = $(this).children().attr('class');
+                  if (typeof(type) == 'undefined') { retrun; }
+                  $('div.area:not(.hide)').addClass('hide');
+                  $('div.area.' + type).attr('class', 'area ' + type);
+                }
+              );
+          }
+        )
+      }(jQuery);
+
+    </script>
+     
+    <style>
+      div.content {
+        text-align: left;
+        width: 950px;
+        height: 550px;
+        position: relative;
+        margin: 0 auto;
+        background-color: #111;
+      }
+      header {
+        background-color: #bbe;
+        width: 100%;
+        height: 70px;
+        cursor: pointer
+      }
+      footer {
+        background-color: #bbe;
+        width: 100%;
+        height: 70px;
+        bottom: 0;
+        position: absolute;
+        cursor: pointer
+      }
+      header p, footer p {
+        width: 237.5px;
+        height: 50px;
+        float: left;
+        text-align: center;
+        vertical-align: middle;
+
+        opacity: 1;
+        /* chrome and Safari */
+        -webkit-box-shadow: black 2px 2px 5px;  
+        -webkit-border-radius: 1em;  
+        -webkit-transition: opacity 0.5s linear;  
+        -webkit-transform-origin: 50% 50%;
+        /* Firefox */
+        -moz-box-shadow: black 2px 2px 5px;  
+        -moz-border-radius: 1em;  
+        -moz-transition: opacity 0.5s linear;  
+        -moz-transform-origin: 50% 50%;
+        /* Opera and IE */
+        box-shadow: black 2px 2px 5px;  
+        border-radius: 1em;  
+        /* Opera */
+        -o-transition: opacity 0.5s linear;  
+        -o-transform-origin: 50% 50%;  
+        /* IE? */
+        -ms-transition: opacity 0.5s linear;  
+        -ms-transform-origin: 50% 50%;  
+      }
+      header p a, footer p a {
+        text-decoration: none;
+        padding-top: 3px;
+      }
+      header p:hover, footer p:hover {  
+        opacity: 0;  
+      }
+      .area {
+        position: relative;
+        width: 750px;
+        height: 400px;
+        background-color: #ffe8d1;
+        text-align: center;
+        margin: 5px auto;
+        
+      }
+
+      div.area.animation img {
+        /* Firefox 動かない */
+        -moz-animation-name: 'sd-title';
+        -moz-animation-duration: 2s;
+        -moz-animation-timing-function: ease;
+        -moz-animation-iteration-count: infinite;
+        /* chrome and Safari */
+        -webkit-animation-name: 'sd-title';
+        -webkit-animation-duration: 2s;
+        -webkit-animation-timing-function: ease;
+        -webkit-animation-iteration-count: infinite;
+        /* Opera 動かない */
+        -o-animation-name: 'sd-title';
+        -o-animation-duration: 2s;
+        -o-animation-timing-function: ease;
+        -o-animation-iteration-count: infinite;
+        /* IE 動かない */
+        -ms-animation-name: 'sd-title';
+        -ms-animation-duration: 2s;
+        -ms-animation-timing-function: ease;
+        -ms-animation-iteration-count: infinite;
+        
+        animation-name: 'sd-title';
+        animation-duration: 2s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+
+      }
+
+      @-moz-keyframes 'sd-title' {
+        0% {width: 50px; height: 102px; background-color: aqua;}
+        50% {width: 900px; height: 152px; background-color: aqua;}
+        70% {width: 600px; height: 80px; background-color: aqua;}
+        100% {width: 750px; height: 102px; background-color: blue;}
+      }
+
+      @-webkit-keyframes 'sd-title' {
+        0% {width: 50px; height: 102px; background-color: aqua;}
+        50% {width: 900px; height: 152px; background-color: aqua;}
+        70% {width: 600px; height: 80px; background-color: aqua;}
+        100% {width: 750px; height: 102px; background-color: blue;}
+      }
+
+      @-o-keyframes 'sd-title' {
+        0% {width: 50px; height: 102px; background-color: aqua;}
+        50% {width: 900px; height: 152px; background-color: aqua;}
+        70% {width: 600px; height: 80px; background-color: aqua;}
+        100% {width: 750px; height: 102px; background-color: blue;}
+      }
+
+      @-ms-keyframes 'sd-title' {
+        0% {width: 50px; height: 102px; background-color: aqua;}
+        50% {width: 900px; height: 152px; background-color: aqua;}
+        70% {width: 600px; height: 80px; background-color: aqua;}
+        100% {width: 750px; height: 102px; background-color: blue;}
+      }
+
+      .hide {
+        display: none;
+      }
+
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <div class="content-header">
+          <p>
+            <a href="#" class="transform">変形 transform </a>
+          </p>
+          <p>
+             <a href="#" class="transition">時間的変化 transition </a>
+          </p>
+          <p>
+            <a href="#" class="animation">アニメーション animation </a>
+          </p>
+          <p>
+            <a href="#" class="border">背景と線 Backgrounds and Border </a>
+          </p>
+        </div>
+      </header>
+      <div class="area transform hide">変形 transform</div>
+      <div class="area transition hide">時間的変化 transition </div>
+      <div class="area animation hide">
+        <p>アニメーション animation </p>
+        <img src="http://iwe-i.com/image/free-shipping.jpg" alt="" />
+      </div>
+      <div class="area border hide">背景と線 Backgrounds and Border</div>
+      <footer>
+       <p>test1</p>
+       <p>test2</p>
+       <p>test3</p>
+       <p>test4</p>
+      </footer>
+    </div>
+  </body>
+</html>
